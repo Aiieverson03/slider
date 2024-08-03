@@ -1,10 +1,11 @@
 const leftArrow = document.querySelector('#left-arrow');
 const rightArrow = document.querySelector('#right-arrow');
+const slider = document.querySelector('.slider');
 const toScroll = document.querySelector('.img-container');
 const pictures = [...document.querySelectorAll('.scrollable')];
-console.log(pictures)
+console.log(pictures[0].getBoundingClientRect())
 const subscribe = document.querySelector('#subscribe');
-console.log(toScroll);
+console.dir(toScroll);
 
 
 let scrollAmount = 0;
@@ -21,13 +22,15 @@ function scrollToLeft(e) {
     }
     console.log(pictures.length);
     scrollAmount -= 100;
-    console.log(scrollAmount);
-    console.log(-((pictures.length -1)*100));
-
     
     toScroll.style.transform = `translateX(${scrollAmount}%)`;
     toScroll.style.transition = 'transform 0.5s ease-in-out';
-
+    console.log("test")
+    console.log(pictures[0].getBoundingClientRect().left)
+    console.log(pictures[0])
+    console.log(toScroll.getBoundingClientRect().left)
+    console.log(slider.getBoundingClientRect().left)
+    
 }
 
 function scrollToRight(e) {
@@ -36,4 +39,9 @@ function scrollToRight(e) {
     }
     scrollAmount += 100;
     toScroll.style.transform = `translateX(${scrollAmount}%)`;
+    toScroll.style.transition = 'transform 0.5s ease-in-out';
+    console.log("test")
+    console.log(pictures[0].getBoundingClientRect().left)
+    console.log(toScroll.getBoundingClientRect().left)
+    console.log(slider.getBoundingClientRect().left)
 }
